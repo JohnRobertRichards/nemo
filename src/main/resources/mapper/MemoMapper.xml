@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.dishwalla.nemo.memo.dao.MemoDao" >
+
+    <select id="selectAll" resultType="org.dishwalla.nemo.memo.domain.TodoVo">
+        SELECT NAME FROM SON.TODO
+    </select>
+    
+    <delete id="delete" parameterType="org.dishwalla.nemo.memo.domain.TodoVo">
+        DELETE FROM SON.TODO
+         WHERE 1=1
+           AND NAME = #{name}
+    </delete>
+    
+    <insert id="insert" parameterType="org.dishwalla.nemo.memo.domain.TodoVo">
+        INSERT INTO SON.TODO (
+            NAME
+        ) VALUES (
+            #{name}
+        )
+    </insert>
+
+</mapper>
